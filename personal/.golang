@@ -1,0 +1,16 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+# Note: PS1 and umask are already set in /etc/profile. You should not
+# need this unless you want different defaults for root.
+# umask 022
+
+# You may uncomment the following lines if you want `ls' to be colorized:
+cdir=$(dirname ${BASH_SOURCE[0]})
+. $cdir/bash-utils/common.sh
+
+append_to_path /usr/local/go/bin
+append_to_path /root/go/bin
+# 配置 GOPROXY 环境变量
+export GOPROXY=proxy.golang.com.cn
+# 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）
+export GOPRIVATE=gitlab.zixel.cn,github.com/albertclass/private
